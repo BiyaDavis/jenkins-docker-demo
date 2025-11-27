@@ -11,8 +11,16 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'python3 --version'
-                sh 'pip3 --version'
-                sh 'pip3 install -r requirements.txt --user'
+
+                sh '''
+                if command -v pip3 >/dev/null 2>&1; then
+                    echo "Using pip3"
+                    pip3 install -r requirements.txt --user
+                else
+                    echo "pip3 not found, using pip"
+                    pip install -r requirements.txt --user
+                fi
+                '''
             }
         }
 
