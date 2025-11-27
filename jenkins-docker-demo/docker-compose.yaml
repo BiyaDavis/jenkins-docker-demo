@@ -1,0 +1,7 @@
+version: '3'
+services:
+  simple-app:
+    image: simple-app:latest
+    ports:
+      - "5000:5000"
+    restart: always
