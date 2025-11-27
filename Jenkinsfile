@@ -15,10 +15,10 @@ pipeline {
                 sh '''
                 if command -v pip3 >/dev/null 2>&1; then
                     echo "Using pip3"
-                    pip3 install -r requirements.txt --user
+                    pip3 install -r requirements.txt --break-system-packages
                 else
                     echo "pip3 not found, using pip"
-                    pip install -r requirements.txt --user
+                    pip install -r requirements.txt --break-system-packages
                 fi
                 '''
             }
